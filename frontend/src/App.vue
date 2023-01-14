@@ -12,7 +12,7 @@ window.ws = new WebSocket('ws://localhost:3000')
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir, Hezlvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -27,10 +27,10 @@ body, html, #app {
 }
 nav {
   padding: 0.75rem;
-  background-color: rgb(217,235,238);
+  background-color:  rgb(184,216,237);
   font-size: 1rem;
 }
 nav a {
-  color: rgb(0,0,133);
+  color: rgb(13,39,92);
 }
 </style>

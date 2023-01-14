@@ -2,7 +2,10 @@
   <div class="plowbg">
     <!-- Display the user that's signed in -->
     <p>Logged in as {{id}}</p>
-    <button @click="toggleTracking">    
+    <button @click="logout" class="logout">
+      Logout
+    </button>
+    <button @click="toggleTracking" class="tracker">    
       {{ tracking ? "Stop Tracking" : "Start Tracking" }} 
     </button>
     <!-- Make a table of their previous locations -->
@@ -13,14 +16,14 @@
           <th>Latitude</th>
           <th>Longitude</th>
         </tr>
-        <!-- <tr v-for="loc in locations.slice(0, 10)" :key="loc">
-          <td>{{loc._lat}}</td>
-          <td>{{loc._long}}</td>
+        <tr v-for="loc in locations.slice(0, 10)" :key="loc">
+          <td>{{loc.lat}}</td>
+          <td>{{loc.lng}}</td>
         </tr>
         <tr v-if="locations.length >= 10">
           <td>...</td>
           <td>...</td>
-        </tr> -->
+        </tr>
       </table>
       </div>
   </div>
@@ -44,6 +47,11 @@ const toggleTracking = () => {
   }
 }
 
+const logout = () => {
+  localStorage.setItem("id", "");
+  window.location.href = "/";
+}
+
 const updateUserPos = () => {
   if(!tracking.value) return;
   if (navigator.geolocation) {
@@ -60,7 +68,10 @@ const updateUserPos = () => {
           return;
         }
       }
-      locations.value.push(lastPos);
+      locations.value.push({
+        lat: latitude,
+        lng: longitude
+      });
 
       lastSet++;
       // add the user's location to the database
@@ -121,7 +132,7 @@ if(window.ws.readyState == 1){
 <style scoped>
 .plowbg {
   height: 100%;
-  color: rgb(0,0,133);
+  color: rgb(13,39,92);
   background-color: rgb(255, 255, 255);
   background-image: url('../assets/bg3.jpg');
   background-size: cover;
@@ -130,16 +141,27 @@ if(window.ws.readyState == 1){
   align-items: center;
 }
 button {
-  margin-top: 15%;
   width: 40%;
-  background-color: rgb(217,235,238);
-  color: rgb(0,0,133);
+  background-color: rgb(184,216,237);
+  color: rgb(13,39,92);
   padding: 1rem;
   border-radius: 1rem;
   border: 3px solid white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.5rem;
   transition: transform 0.2s;
+}
+button.tracker {
+  margin-top: 15%;
+  width: 30%;
+}
+button.logout {
+  padding: 0.3rem;
+  width: 7%;
+  color: rgb(13,39,92);
+  background-color: rgb(184,216,237);
+  font-size: 1rem;
+
 }
 button:hover{
   cursor: pointer;

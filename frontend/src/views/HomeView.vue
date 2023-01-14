@@ -1,5 +1,5 @@
 <template>
-  <div ref="mapRef" style="width: 100%; height: 95%"></div>
+  <div ref="mapRef" style="width: 100%; height: calc(100% - 42.4px)"></div>
 </template>
  
 <script setup>
