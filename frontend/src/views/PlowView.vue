@@ -79,7 +79,7 @@ const updateUserPos = () => {
         id: id,
         lat: latitude,
         lng: longitude,
-        lastSet: lastSet + 1,
+        lastSet: lastSet,
         [lastSet]: {
           lat: latitude,
           lng: longitude
