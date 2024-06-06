@@ -1,6 +1,6 @@
 # Snowplow Tracker
 
-This project was created for the BB&N hackathon 2023. It is a web app that would allow users to track in realtime the location of snowplows in their area. It provides a way to tell whether or not a street has recently been cleared, which would provide utility to people who need to get to work or school, or to snowplow drivers who need to know where to go next.
+This project was created for the BB&N hackathon 2023. It is a web app that would allow users to track in realtime the location of snowplows in their area. It provides a way to tell whether or not a street has recently been cleared, which would provide utility to people who need to get to work or school or to snowplow drivers who need to know where to go next.
 
 ### How to run
 
